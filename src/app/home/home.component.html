@@ -1,0 +1,18 @@
+<div class="container mx-auto p-2 sm:p-4">
+  <h1 class="text-xl sm:text-2xl font-bold mb-1 sm:mb-2">Dashboard de Clases</h1>
+  <div class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-2 sm:gap-4">
+    <div *ngFor="let clase of clases" class="bg-white shadow-md rounded-lg overflow-hidden">
+      <div class="relative">
+        <img src="../../assets/fondClases.JPEG" alt="Curso" class="w-full h-32 sm:h-40 md:h-48 lg:h-56 object-cover">
+        <div class="absolute inset-0 bg-gray-800 bg-opacity-25 flex items-center justify-center">
+          <h2 class="text-white text-base sm:text-lg font-bold">{{ clase.contenido }}</h2>
+        </div>
+      </div>
+      <div class="p-2 sm:p-3">
+        <p class="text-gray-700 text-sm mb-1"><strong>Profesor:</strong> {{ clase.curso.clase.profesor }}</p>
+        <p class="text-gray-700 text-sm mb-1"><strong>Contenido:</strong> {{ clase.contenido }}</p>
+        <a [routerLink]="['/clase-detalle', clase.curso.clase.idClase]">Ver Detalles de Clase {{ clase.curso.clase.idClase }}</a>
+      </div>
+    </div>
+  </div>
+</div>

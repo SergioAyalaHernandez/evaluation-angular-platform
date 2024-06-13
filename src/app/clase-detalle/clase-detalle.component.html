@@ -1,0 +1,15 @@
+<div *ngIf="claseInfo" class="bg-white rounded-lg shadow-lg p-6 flex flex-col md:flex-row">
+  <div class="w-full md:w-1/2 mb-6 md:mb-0 md:mr-6">
+    <iframe
+      [src]="safeUrl"
+      class="w-full h-3/4 rounded-lg shadow-lg"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+  </div>
+  <div class="w-full md:w-1/2">
+    <h1 class="text-2xl font-bold mb-4 text-base md:text-2xl">{{ claseInfo.profesor }}</h1>
+    <p class="text-lg mb-4 text-sm md:text-lg">{{ claseInfo.contenido }}</p>
+    <pre class="bg-gray-100 p-4 rounded-lg text-xs md:text-base overflow-auto break-words whitespace-pre-wrap">{{ claseInfo.ejemplosCodigo }}</pre>
+  </div>
+</div>

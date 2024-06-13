@@ -1,0 +1,32 @@
+<form (ngSubmit)="submitForm()" #examForm="ngForm" class="mx-auto p-6 bg-white shadow-md rounded-lg">
+  <!-- Contenido del formulario -->
+  <div *ngFor="let pregunta of preguntas" class="mb-6">
+    <h5 class="text-lg font-semibold mb-3">{{ pregunta.descripcion }}</h5>
+    <div *ngFor="let respuesta of getRespuestasByPreguntaId(pregunta.idPregunta)" class="ml-4 flex items-center cursor-pointer">
+      <input type="radio" name="respuesta{{ pregunta.idPregunta }}" [value]="respuesta.idRespuesta" [(ngModel)]="selectedAnswers[pregunta.idPregunta]" class="mr-2 text-blue-500">
+      <label class="text-gray-800">{{ respuesta.respuesta }}</label>
+    </div>
+  </div>
+  <!-- Botón de enviar -->
+  <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-6 rounded-lg shadow-md">Enviar Respuestas</button>
+</form>
+
+<div class="modal hidden" #myModal>
+  <!-- Contenido del modal -->
+  <div class="fixed inset-0 z-50 flex items-center justify-center bg-gray-900 bg-opacity-50">
+    <div class="bg-white p-4 rounded-lg max-w-md">
+      <!-- Botón para cerrar el modal -->
+      <h2 class="text-lg font-semibold mb-2">Resultado del Examen</h2>
+      <p class="mb-2">ID de Resultado: {{ resultado?.idResultado }}</p>
+      <p class="mb-2">Nombre: {{ resultado?.persona?.nombres }} {{ resultado?.persona?.apellidos }}</p>
+      <p class="mb-4">Correo Electrónico: {{ resultado?.persona?.email }}</p>
+        <p class="mb-4" [ngClass]="{'text-red-500': resultado?.resultado < 0.6, 'text-green-500': resultado?.resultado >= 0.6}">
+          Resultado del examen: {{ resultado?.resultado | percent }}
+        </p>
+      <button class="p-2 bg-blue-500 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md" (click)="closeModal()">Cerrar</button>
+
+    </div>
+  </div>
+</div>
+
+

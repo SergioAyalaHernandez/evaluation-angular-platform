@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background-color: #eae9e9;
+  --text-color: #00446b;
+}
+
+/* Tema Claro */
+:root.theme-light {
+  --background-color: #f5f1f1;
+  --text-color: #ba1010;
+}
+
+/* Estilos generales */
+.todo  {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
