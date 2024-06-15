@@ -29,6 +29,8 @@ import { FirmaComponent } from './firma/firma.component';
 import { BackgroundComponent } from './background/background.component';
 import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
 import { ClaseDetalleComponent } from './clase-detalle/clase-detalle.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {DashboardDataComponent} from "./components/dashboardData/dashboard.component";
 
 @NgModule({
   declarations: [
@@ -52,7 +54,8 @@ import { ClaseDetalleComponent } from './clase-detalle/clase-detalle.component';
     FirmaComponent,
     BackgroundComponent,
     ErrorDialogComponent,
-    ClaseDetalleComponent
+    ClaseDetalleComponent,
+    DashboardDataComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,8 @@ import { ClaseDetalleComponent } from './clase-detalle/clase-detalle.component';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    LayoutRoutingModule
+    LayoutRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [CookieService, AuthGuard,{
     provide: HTTP_INTERCEPTORS,

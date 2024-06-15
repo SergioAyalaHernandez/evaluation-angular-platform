@@ -3,7 +3,7 @@
   <div class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-2 sm:gap-4">
     <div *ngFor="let clase of clases" class="bg-white shadow-md rounded-lg overflow-hidden">
       <div class="relative">
-        <img src="../../assets/fondClases.JPEG" alt="Curso" class="w-full h-32 sm:h-40 md:h-48 lg:h-56 object-cover">
+        <img [src]="clase.curso.clase.linkClase" alt="Curso" class="w-full h-32 sm:h-40 md:h-48 lg:h-56 object-cover">
         <div class="absolute inset-0 bg-gray-800 bg-opacity-25 flex items-center justify-center">
           <h2 class="text-white text-base sm:text-lg font-bold">{{ clase.contenido }}</h2>
         </div>

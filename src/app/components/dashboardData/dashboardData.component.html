@@ -1,0 +1,178 @@
+<div class="container mx-auto p-4">
+  <div class="container mx-auto p-4">
+    <!-- Estudiantes por Plan -->
+    <div class="my-4">
+      <h2 class="text-2xl font-bold">Estudiantes por Plan</h2>
+      <table class="w-full border-collapse border-gray-300 mt-2">
+        <thead>
+        <tr>
+          <th class="px-4 py-2 bg-gray-200 border border-gray-300">Tipo Plan</th>
+          <th class="px-4 py-2 bg-gray-200 border border-gray-300">Número de Estudiantes</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let estudiante of estudiantesPorPlan" class="bg-gray-100 border border-gray-300">
+          <td class="px-4 py-2 border border-gray-300">{{ estudiante.tipoPlan }}</td>
+          <td class="px-4 py-2 border border-gray-300">{{ estudiante.cantidad }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Promedio de Resultados por Curso -->
+    <div class="my-4">
+      <h2 class="text-2xl font-bold">Promedio de Resultados por Curso</h2>
+      <table class="w-full border-collapse border-gray-300 mt-2">
+        <thead>
+        <tr>
+          <th class="px-4 py-2 bg-gray-200 border border-gray-300">Curso</th>
+          <th class="px-4 py-2 bg-gray-200 border border-gray-300">Promedio Resultados</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let resultado of promedioResultadosPorCurso" class="bg-gray-100 border border-gray-300">
+          <td class="px-4 py-2 border border-gray-300">{{ resultado.nombre }}</td>
+          <td class="px-4 py-2 border border-gray-300">{{ resultado.promedio | percent:'1.2-2'}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <!-- Distribución de Calificaciones -->
+  <div class="my-4">
+    <h2 class="text-2xl font-bold">Distribución de Calificaciones</h2>
+    <table class="w-full border-collapse border-gray-300 mt-2">
+      <thead>
+      <tr>
+        <th class="px-4 py-2 bg-gray-200 border border-gray-300">Título Examen</th>
+        <th class="px-4 py-2 bg-gray-200 border border-gray-300">Calificación</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let examen of distribucionCalificaciones" class="bg-gray-100 border border-gray-300">
+        <td class="px-4 py-2 border border-gray-300">{{ examen.nombre }}</td>
+        <td class="px-4 py-2 border border-gray-300">{{ examen.resultado | percent:'1.2-2'}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Tasa de Aprobación por Curso -->
+  <div class="my-4">
+    <h2 class="text-2xl font-bold">Tasa de Aprobación por Curso</h2>
+    <table class="w-full border-collapse border-gray-300 mt-2">
+      <thead>
+      <tr>
+        <th class="px-4 py-2 bg-gray-200 border border-gray-300">Curso</th>
+        <th class="px-4 py-2 bg-gray-200 border border-gray-300">Tasa de Aprobación</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let curso of tasaAprobacionPorCurso" class="bg-gray-100 border border-gray-300">
+        <td class="px-4 py-2 border border-gray-300">{{ curso.nombre }}</td>
+        <td class="px-4 py-2 border border-gray-300">{{ curso.tasaAprobacion }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- Clases por Profesor -->
+  <div class="my-4">
+    <h2 class="text-2xl font-bold">Clases por Profesor</h2>
+    <table class="w-full border-collapse border-gray-300 mt-2">
+      <thead>
+      <tr>
+        <th class="px-4 py-2 bg-gray-200 border border-gray-300">Profesor</th>
+        <th class="px-4 py-2 bg-gray-200 border border-gray-300">Cantidad de Clases</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let profesor of clasesPorProfesor" class="bg-gray-100 border border-gray-300">
+        <td class="px-4 py-2 border border-gray-300">{{ profesor.profesor }}</td>
+        <td class="px-4 py-2 border border-gray-300">{{ profesor.cantidad }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Preguntas por Examen -->
+  <div class="my-4">
+    <h2 class="text-2xl font-bold">Preguntas por Examen</h2>
+    <table class="w-full border-collapse border-gray-300 mt-2">
+      <thead>
+      <tr>
+        <th class="px-4 py-2 bg-gray-200 border border-gray-300">Título Examen</th>
+        <th class="px-4 py-2 bg-gray-200 border border-gray-300">Número de Preguntas</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let examen of preguntasPorExamen" class="bg-gray-100 border border-gray-300">
+        <td class="px-4 py-2 border border-gray-300">{{ examen.titulo }}</td>
+        <td class="px-4 py-2 border border-gray-300">{{ examen.cantidad }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Preguntas más Acertadas -->
+  <div class="my-4">
+    <h2 class="text-2xl font-bold">Preguntas más Acertadas</h2>
+    <table class="w-full border-collapse border-gray-300 mt-2">
+      <thead>
+      <tr>
+        <th class="px-4 py-2 bg-gray-200 border border-gray-300">Descripción</th>
+        <th class="px-4 py-2 bg-gray-200 border border-gray-300">Cantidad de Respuestas Correctas</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let pregunta of preguntasMasAcertadas" class="bg-gray-100 border border-gray-300">
+        <td class="px-4 py-2 border border-gray-300">{{ pregunta.descripcion }}</td>
+        <td class="px-4 py-2 border border-gray-300">{{ pregunta.cantidadRespuestasCorrectas }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Preguntas menos Acertadas -->
+  <div class="my-4">
+    <h2 class="text-2xl font-bold">Preguntas menos Acertadas</h2>
+    <table class="w-full border-collapse border-gray-300 mt-2">
+      <thead>
+      <tr>
+        <th class="px-4 py-2 bg-gray-200 border border-gray-300">Descripción</th>
+        <th class="px-4 py-2 bg-gray-200 border border-gray-300">Cantidad de Respuestas Correctas</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let pregunta of preguntasMenosAcertadas" class="bg-gray-100 border border-gray-300">
+        <td class="px-4 py-2 border border-gray-300">{{ pregunta.descripcion }}</td>
+        <td class="px-4 py-2 border border-gray-300">{{ pregunta.cantidadRespuestasCorrectas }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Nuevos Usuarios por Mes -->
+  <div class="my-4">
+    <h2 class="text-2xl font-bold">Nuevos Usuarios por Mes</h2>
+    <table class="w-full border-collapse border-gray-300 mt-2">
+      <thead>
+      <tr>
+        <th class="px-4 py-2 bg-gray-200 border border-gray-300">Mes</th>
+        <th class="px-4 py-2 bg-gray-200 border border-gray-300">Número de Nuevos Usuarios</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let usuario of nuevosUsuariosPorMes" class="bg-gray-100 border border-gray-300">
+        <td class="px-4 py-2 border border-gray-300">{{ usuario.mes }}</td>
+        <td class="px-4 py-2 border border-gray-300">{{ usuario.cantidad }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+</div>
