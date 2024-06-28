@@ -12,6 +12,7 @@ import {HomeBasicComponent} from "./home-basic/home-basic.component";
 import {NotFoundComponent} from "./not-found/not-found.component";
 import {ClaseDetalleComponent} from "./clase-detalle/clase-detalle.component";
 import {DashboardDataComponent} from "./components/dashboardData/dashboard.component";
+import {ClasesComponent} from "./clases/clases.component";
 
 const routes: Routes = [
   { path: 'examen', component: ExamenComponent, canActivate: [AuthGuard] },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'home', component: HomeBasicComponent, canActivate: [AuthGuard] },
   { path: 'dashboard', component: DashboardDataComponent ,canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
+  { path: 'landin', component: ClasesComponent },
   { path: 'clase-detalle/:id', component: ClaseDetalleComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent }

@@ -70,9 +70,9 @@
             Tipo de Usuario
           </label>
           <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="tipoUsuario" [(ngModel)]="persona.tipoUsuario" name="tipoUsuario" required (ngModelChange)="checkFormValidity()">
-            <option value="A">A</option>
-            <option value="E">E</option>
-            <option value="P">P</option>
+            <option value="A">Admin</option>
+            <option value="E">Estudiante</option>
+            <option value="P">Profesor</option>
           </select>
         </div>
         <div class="mb-4">
@@ -80,9 +80,9 @@
             ID Plan
           </label>
           <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="idPlan" [(ngModel)]="persona.plan.idPlan" name="idPlan" required (ngModelChange)="checkFormValidity()" >
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
+            <option value="1">Basic</option>
+            <option value="2">Medium</option>
+            <option value="3">Premium </option>
           </select>
         </div>
         <div class="flex items-center justify-between">

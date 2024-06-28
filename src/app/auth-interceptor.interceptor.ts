@@ -26,7 +26,7 @@ export class AuthInterceptorInterceptor implements HttpInterceptor {
 
       return next.handle(authReq);
     } else {
-      // Si no hay token, continúa con la solicitud original
+
       return next.handle(request);
     }
   }

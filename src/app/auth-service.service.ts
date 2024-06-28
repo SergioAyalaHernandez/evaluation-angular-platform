@@ -2,13 +2,15 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable, tap} from "rxjs";
 import {CookieService} from "ngx-cookie-service";
+import {environment} from "../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthServiceService {
 
-  private apiUrl = 'http://localhost:8080/api/auth/login';
+  private apiUrlBase = environment.apiUrl2;
+  private clasePath = "/api/auth/login";
 
   constructor(private http: HttpClient, private cookieService: CookieService) { }
 
@@ -16,7 +18,7 @@ export class AuthServiceService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const body = { email, pass: password , };
 
-    return this.http.post(this.apiUrl, body, { headers }).pipe(
+    return this.http.post(`${this.apiUrlBase}${this.clasePath}`, body, { headers }).pipe(
       tap((response: any) => {
         if (response.token) {
           this.cookieService.set('auth_token', response.token);
